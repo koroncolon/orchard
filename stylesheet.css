@@ -1,0 +1,675 @@
+@charset "utf-8";
+
+/* ========================================
+    リセットcss
+========================================= */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-style:normal;
+	font-weight: normal;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html{overflow-y: scroll;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,q:before, q:after {content: ''; content: none;}
+input, textarea,{margin: 0; padding: 0;}
+ol, ul{list-style:none;}
+table{border-collapse: collapse; border-spacing:0;}
+caption, th{text-align: left;}
+a:focus {outline:none;}
+
+/* micro clearfix */
+.cf:before,
+.cf:after {
+    content: " ";
+    display: table;
+}
+.cf:after {clear: both;}
+.cf {*zoom: 1;}
+
+
+
+/* ========================================
+    全体設定
+========================================= */
+html{
+	font-size: 62.5%; /* =10px */
+}
+
+body {
+	font-size: 1.6rem;
+	width: 100%;
+	height: auto;
+	color:#313430;
+	letter-spacing: 0.2em;
+	font-family: "小塚ゴシック Pro", "Meiryo", sans-serif;
+}
+
+#inner{
+	padding: 0 10%;
+}
+
+h1{
+	font-size: 3rem;
+	color: #f03d3d;
+	font-family: "せのびゴシック", "Meiryo", sans-serif;
+	text-align: center;
+	margin: 10rem 0 4rem 0;
+}
+
+a {
+	text-decoration:none;
+	color:#313430;
+}
+p{
+	text-align: center;
+	margin: 4rem 0;
+	line-height: 4rem;
+}
+
+.btn{
+	background-color:#f03d3d;
+	border-radius: 5px;
+	padding: 0.8em 1em;
+	display: inline-block;
+	color: #fff;
+}
+.btn:hover{
+	background-color: #fff;
+	border: 0.2rem solid #f03d3d;
+	padding: 0.68em 0.9em;
+	color: #f03d3d;
+}
+
+.center{
+	text-align: center;
+}
+
+.box1{
+	width: 100%;
+	padding-bottom: 10rem;
+	border-bottom: 0.1rem solid #d2b48c;
+}
+
+
+html{
+  scroll-behavior: smooth;
+}
+
+.page_top_btn{
+  width: 7rem;
+  height: 7rem;
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  background: #f03d3d;
+  opacity: 0.7;
+  z-index: 10;
+  }
+
+.page_top_btn:hover {
+	opacity: 1;
+}
+
+.page_top_btn::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    content: '\f0d8';
+    font-size: 3rem;
+    color: #ffffff;
+    position: absolute;
+    width: 2rem;
+    height: 0rem;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+  }
+
+.page_top_btn::after{
+    content: 'PAGE TOP';
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #fff;
+    position: absolute;
+    top: 1rem;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+  }
+
+
+*{
+  box-sizing:border-box;
+}
+
+
+/* ========================================
+    ヘッダー
+========================================= */
+header{
+	width: 100%;
+	height: 5em;
+	display: flex;
+	justify-content: space-between;
+	padding: 0.8em 2em;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	background-color: #fff;
+	border-bottom: 0.5rem solid #f03d3d;
+}
+header img{
+	height: 5rem;
+}
+.padding{
+	height: 5em;
+}
+
+nav{
+	display: flex;
+	gap: 2em;
+	align-items: center;
+}
+
+nav a{
+	color: #f03d3d;
+	font-family: "せのびゴシック", "Meiryo", sans-serif;
+	font-size: 1em;
+}
+nav a:hover{
+	border-bottom: 1px solid #f03d3d;
+}
+
+.drawer{
+	display: none;
+}
+
+
+/* チェックボックスは非表示に */
+.drawer-hidden {
+  display: none;
+}
+
+/* ハンバーガーアイコンの設置スペース */
+.drawer-open {
+  display: flex;
+  height: 6rem;
+  width: 6rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 100;/* 重なり順を一番上に */
+  cursor: pointer;
+}
+
+/* ハンバーガーメニューのアイコン */
+.drawer-open span,
+.drawer-open span:before,
+.drawer-open span:after {
+  content: '';
+  display: block;
+  height: 0.3rem;
+  width: 2.5rem;
+  border-radius: 0.3rem;
+  background: #333;
+  transition: 0.5s;
+  position: absolute;
+}
+
+/* 三本線のうち一番上の棒の位置調整 */
+.drawer-open span:before {
+  bottom: 0.8rem;
+}
+
+/* 三本線のうち一番下の棒の位置調整 */
+.drawer-open span:after {
+  top: 0.8rem;
+}
+
+/* アイコンがクリックされたら真ん中の線を透明にする */
+#drawer-check:checked ~ .drawer-open span {
+  background: rgba(255, 255, 255, 0);
+}
+
+/* アイコンがクリックされたらアイコンが×印になように上下の線を回転 */
+#drawer-check:checked ~ .drawer-open span::before {
+  bottom: 0;
+  transform: rotate(45deg);
+}
+
+#drawer-check:checked ~ .drawer-open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+  
+/* メニューのデザイン*/
+.drawer-content {
+  width: 30%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 100%;/* メニューを画面の外に飛ばす */
+  z-index: 99;
+  background:#fff;
+  transition: .5s;
+  padding-top: 5.5em;
+  text-align: center;
+}
+.drawer-content a{
+	color: #f03d3d;
+	font-family: "せのびゴシック", "Meiryo", sans-serif;
+	font-size: 1em;
+}
+.drawer-content a:hover{
+	border-bottom: 1px solid #f03d3d;
+}
+.drawer-content li{
+	margin-bottom: 3rem;
+}
+
+/* アイコンがクリックされたらメニューを表示 */
+#drawer-check:checked ~ .drawer-content {
+  left: 70%;/* メニューを画面に入れる */
+}
+/* ========================================
+    メイン画像
+========================================= */
+main{
+	background: url(main.jpeg) no-repeat center/cover;
+	width: 100%;
+	height: 30em;
+	text-align: center;
+	padding: 5em 0;
+	position: relative;
+}
+
+
+main p {
+	font-size: 2rem;
+	margin-bottom: 1.3em;
+	color: #fff;
+}
+
+main::before{
+	background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	content: ' ';
+}
+.box{
+	position: absolute;
+	width: 100%;
+}
+
+
+/* ========================================
+    果物狩り
+========================================= */
+#fruits img{
+	width: 25vw;
+	height: 25vw;
+	text-align: center;
+	opacity: 0.5;
+}
+.fruit{
+	width: 25vw;
+	max-width: 480px;
+	height: 25vw;
+	object-fit: cover;
+}
+.items{
+	width: 25vw;
+	height: 25vw;
+	background-color: #000;
+	display: inline-block;
+	position: relative;
+}
+
+.name{
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 4rem;
+	color: #fff;
+	white-space: nowrap;
+}
+
+.eng{
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	font-size: 2rem;
+	color: #fff;
+}
+
+.container{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 4rem;
+}
+
+/* ========================================
+    お知らせ
+========================================= */
+#news a{
+	display: flex;
+	line-height: 4rem;
+	border-bottom: 2px dashed gray ;
+	position: relative;
+}
+
+#news .center a{
+	display: inline-block;
+	border-bottom: none;
+	line-height: 2rem;
+	margin-top: 4rem;
+}
+#news .center a:hover{
+	border: 0.2rem solid #f03d3d;
+}
+
+#news dd{
+	position: absolute;
+	left: 20rem;
+}
+
+
+/* ========================================
+    アクセス・お問い合わせ
+========================================= */
+#map{
+	display: flex;
+}
+#access{
+	display: block;
+}
+iframe{
+	width: 35vw;
+	height: 35vw;
+	margin: 0 10rem 4rem 4rem;
+}
+#access p{
+	text-align: left;
+}
+
+/* ========================================
+    フッター
+========================================= */
+footer{
+	width: 100%;
+	height: auto;
+	margin-top: 10rem;
+	background-color:#d2b48c;
+	color: #fff;
+	padding: 2rem;
+}
+#footer-inner{
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+footer img{
+	width: 20vw;
+}
+footer p {
+	text-align: left;
+	margin: 2rem 0;
+	line-height: 3rem;
+
+}
+footer nav a{
+	color: #fff;
+	font-size: 2rem;
+	margin-top: 2rem;
+}
+small{
+	text-align: center;
+	font-size: 1rem;
+	display: block;
+}
+
+
+/* ========================================
+    下層ページ
+========================================= */
+.under{
+	background: url(main.jpeg) no-repeat center/cover;
+	width: 100%;
+	height: 15em;
+	text-align: center;
+	padding: 5em 0;
+	position: relative;
+	margin-bottom: 5em;
+}
+
+.title p{
+	font-size: 7rem;
+	color: #fff;
+	font-family: "せのびゴシック", "Meiryo", sans-serif;
+	text-align: center;
+	margin: 3rem 0 4rem 0;
+
+}
+
+.anchor{
+	display:block;
+	padding-top: 5rem;
+	margin-top: -5rem;
+}
+/* ========================================
+    冨田果樹園について
+========================================= */
+h2{
+	font-size: 4rem;
+	padding-left: 1rem;
+}
+.h2{
+	display: flex;
+	align-items: center;
+}
+.h2 img{
+	width: 4vw;
+	height: 4.5vw;
+}
+
+.photo img{
+	width: 100%;
+}
+
+.setsumei p{
+	text-align: left;
+}
+
+.grid{
+	margin-top: 10rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10rem;
+}
+
+.about .box1{
+	border-bottom: none;
+}
+
+/* ========================================
+    果物狩り
+========================================= */
+.circle {
+	width: 30vw;
+	height:30vw;
+	border-radius: 50%;
+	background: no-repeat center/cover;
+}
+
+#apple{
+	background-image: url(apple1.jpeg);
+}
+#cherry{
+	background-image: url(cherry1.jpeg);
+}
+#strawberry{
+	background-image: url(strawberry1.jpg);
+}
+
+
+table{
+	width: 100%;
+}
+th{
+	padding: 1em;
+	border: 0.1rem solid #313430;
+	background-color: #f8a4a4;
+}
+td{
+	padding: 1em;
+	border: 0.1rem solid #313430;
+}
+#plan p{
+	text-align:right ;
+	margin: 0;
+	margin-bottom: 12em;
+}
+
+.fruits{
+	padding: 0 10%;
+	justify-content: center;
+	}
+
+
+
+
+/* ========================================
+    お知らせ
+========================================= */
+.article{
+	display: flex;
+	padding: 5em 10%;
+	border-bottom: 0.2rem solid #d2b48c;
+
+}
+.news img{
+	width: 20vw;
+	height: 20vw;
+	margin-right: 5em;
+}
+.news dt{
+	font-size: 3rem;
+}
+
+.article a:hover{
+	border-bottom: 0.1rem solid #313430;
+}
+
+.page a{
+	border: 0.1rem solid #e67a7a;
+	color: #e67a7a;
+	font-size: 2rem;
+	width: 5rem;
+	height: 5rem;
+	display: inline-block;
+	text-align: center;
+	line-height: 5rem;
+}
+.page a:hover{
+	background-color: #e67a7a;
+	color: #fff;
+}
+.page {
+	text-align: right;
+	margin-top: 3rem;
+}
+
+
+/* ========================================
+    アクセス・お問い合わせ
+========================================= */
+.access{
+	border-bottom: 0.1rem solid #d2b48c;
+}
+
+form p {
+	text-align: left;
+	width: 25%;
+	margin: 2rem 0;
+}
+.form{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 12%;
+}
+
+.radio1{
+	width: 80%;
+	margin: 0 0 2rem 0;
+}
+
+
+input[type="text"]{
+	width: 80%;
+	height: 3rem;
+}
+input[type="tel"]{
+	width: 80%;
+	height: 3rem;
+}
+input[type="email"]{
+	width: 80%;
+	height: 3rem;
+}
+label{
+	text-align: left;
+}
+textarea{
+	width: 80%;
+	height: 10rem;
+}
+
+input[type="submit"]{
+	background-color:#f03d3d;
+	border-radius: 5px;
+	padding: 0.8em 1em;
+	color: #fff;
+	border: none;
+	font-size: 1.6rem;
+	letter-spacing: 0.2em;
+	font-family: "小塚ゴシック Pro", "Meiryo", sans-serif;
+	margin: 8rem auto 15rem auto;
+	display: block;
+}
+
+input[type="submit"]:hover{
+	background-color: #fff;
+	border: 0.2rem solid #f03d3d;
+	padding: 0.68em 0.9em;
+	color: #f03d3d;
+}
