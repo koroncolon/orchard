@@ -1,0 +1,103 @@
+@media(max-width: 768px){
+	html{
+		font-size: 35%;
+	}
+
+	main img{
+		width: 70%;
+	}
+
+	#fruits img{
+		width: 70vw;
+		height: 70vw;
+	}
+	.fruit{
+		width: 70vw;
+		height: 70vw;
+	}
+	.items{
+		width: 70vw;
+		height: 70vw;
+		margin-bottom: 4rem;
+	}
+
+
+	#map{
+		display: block;
+		text-align: center;
+	}
+	iframe{
+		width: 50vw;
+		height: 50vw;
+		margin: 4rem auto;
+	}
+	#access p{
+		text-align: center;
+	}
+
+	footer nav{
+		flex-direction: column;
+		gap: 0em;
+		margin-bottom: 2em;
+	}
+
+	.page_top_btn::after{
+		display: none;
+	}
+	.page_top_btn::before{
+		height: 3rem;
+	}
+
+	.form{
+		display: block;
+		padding: 0 ;
+	}
+	form p{
+		margin: 2rem 0 0 0;
+	}
+	input[type="text"]{
+	width: 100%;
+}
+input[type="tel"]{
+	width: 100%;
+}
+input[type="email"]{
+	width: 100%;
+}
+textarea{
+	width: 100%;
+}
+
+}
+
+
+@media(max-width: 1024px){
+	header nav{
+		display: none;
+	}
+	.drawer{
+		display: block;
+	}
+
+	#fruits img{
+		width: 50vw;
+		height: 50vw;
+	}
+	.fruit{
+		width: 50vw;
+		height: 50vw;
+	}
+	.items{
+		width: 50vw;
+		height: 50vw;
+	}
+	.container{
+	display: block;
+	text-align: center;
+	}
+
+	footer nav a{
+		font-size: 0.8em;
+	}
+
+}
