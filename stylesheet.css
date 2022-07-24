@@ -183,7 +183,7 @@ header{
 	border-bottom: 0.5rem solid #f03d3d;
 }
 header img{
-	height: 5rem;
+	height: 5em;
 }
 .padding{
 	height: 5em;
@@ -217,8 +217,8 @@ nav a:hover{
 /* ハンバーガーアイコンの設置スペース */
 .drawer-open {
   display: flex;
-  height: 6rem;
-  width: 6rem;
+  height: 5rem;
+  width: 5rem;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -242,12 +242,12 @@ nav a:hover{
 
 /* 三本線のうち一番上の棒の位置調整 */
 .drawer-open span:before {
-  bottom: 0.8rem;
+  bottom: 0.8em;
 }
 
 /* 三本線のうち一番下の棒の位置調整 */
 .drawer-open span:after {
-  top: 0.8rem;
+  top: 0.8em;
 }
 
 /* アイコンがクリックされたら真ん中の線を透明にする */
