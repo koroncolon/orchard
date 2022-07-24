@@ -517,7 +517,7 @@ h2{
 	margin-top: 10rem;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	gap: 10rem;
+	gap: 3em;
 }
 
 .about .box1{
