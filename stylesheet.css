@@ -597,8 +597,9 @@ td{
 	border: 0.1rem solid #e67a7a;
 	color: #e67a7a;
 	font-size: 2rem;
-	width: 5rem;
-	height: 5rem;
+	width: auto;
+	height: auto;
+	padding: 0.2em 0.8em;
 	display: inline-block;
 	text-align: center;
 	line-height: 5rem;
@@ -610,6 +611,20 @@ td{
 .page {
 	text-align: right;
 	margin-top: 3rem;
+}
+
+/* ========================================
+    記事
+========================================= */
+.articlepage{
+	padding: 2em 2em;
+	border: 0.2rem solid #d2b48c;
+}
+.articlepage img{
+	display: block;
+	margin: 3rem auto;
+	width: 50vw;
+	height: auto;
 }
 
 
